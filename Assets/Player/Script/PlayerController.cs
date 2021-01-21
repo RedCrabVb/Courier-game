@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
     {
         rbfps = GetComponent<RigidbodyFirstPersonController>();
         rb = GetComponent<Rigidbody>();
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -82,7 +83,7 @@ public class PlayerController : MonoBehaviour
             cameraAnimator.CrossFade("Vault", 0.1f);
         }
         bool is_detects_a_Climb_object_and_there_is_no_wall_in_front = (detectClimbObject.Obstruction && !detectClimbObstruction.Obstruction && !IsParkour && !WallRunning
-                                                                        && (Input.GetKey(KeyCode.Space) || !rbfps.Grounded) && Input.GetAxisRaw("Vertical") > 0f);
+                                                                        && (Input.GetKeyDown(KeyCode.Space) || !rbfps.Grounded));// && Input.GetAxisRaw("Vertical") > 0f);
         CanClimb = is_detects_a_Climb_object_and_there_is_no_wall_in_front;
         if (CanClimb)
         {

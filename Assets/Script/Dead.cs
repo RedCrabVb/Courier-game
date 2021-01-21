@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class Dead : MonoBehaviour
 {
@@ -17,9 +19,18 @@ public class Dead : MonoBehaviour
        {
             if (AllSavePoint[i].isActive)
             {
-                eye.SetTrigger("Dead");
-                other.gameObject.transform.position = AllSavePoint[i].getSpawnPoint().position;
+                StartCoroutine(dead(other, AllSavePoint[i].getSpawnPoint().position));
             }
        }
+    }
+    IEnumerator dead(Collider player, Vector3 respawnPoint)
+    {
+        eye.SetTrigger("Dead");
+        player.gameObject.transform.position = respawnPoint;
+        player.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+        player.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        player.gameObject.GetComponent<RigidbodyFirstPersonController>().enabled = false;
+        yield return new WaitForSeconds(1.5f);
+        player.gameObject.GetComponent<RigidbodyFirstPersonController>().enabled = true;
     }
 }
