@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class Pause : MonoBehaviour
 {
-    [SerializeField] private float timer;
-    private bool ispuse, guipuse;
+    private bool ispuse;
     public GameObject pause_panel;
     void Update()
     {
-        Time.timeScale = timer;
+        Time.timeScale = (ispuse == true ? 0 : 1f);
         ispuse = (Input.GetKeyDown(KeyCode.Escape) ? !ispuse : ispuse);
 
         pause_panel.SetActive(ispuse);
         Cursor.visible = ispuse;
         Cursor.lockState = (ispuse ? CursorLockMode.None : CursorLockMode.Locked);
-        timer = (ispuse == true ? 0 : 1f);
     }
 }
 
