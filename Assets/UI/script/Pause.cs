@@ -1,19 +1,38 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 public class Pause : MonoBehaviour
 {
-    private bool ispuse;
+    private bool ispuse = false;
     public GameObject pause_panel;
-    void Update()
+    public RigidbodyFirstPersonController rigidbodyFirstPersonController;
+    private enum SpeedTime
     {
-        Time.timeScale = (ispuse == true ? 0 : 1f);
-        ispuse = (Input.GetKeyDown(KeyCode.Escape) ? !ispuse : ispuse);
+        Stop_time = 0,
+        Start_time = 1
+    }
+    private void Start()
+    {
+        ispuse = false;
+        Time.timeScale = (float)SpeedTime.Start_time;
+        //rigidbodyFirstPersonController.mouseLook.cursor_disabled();
+    }
+    private void pause()
+    {
+        ispuse = !ispuse;
+        Time.timeScale = (ispuse == true ? (float)SpeedTime.Stop_time : (float)SpeedTime.Start_time);
 
         pause_panel.SetActive(ispuse);
-        Cursor.visible = ispuse;
-        Cursor.lockState = (ispuse ? CursorLockMode.None : CursorLockMode.Locked);
+        if (ispuse)
+            rigidbodyFirstPersonController.mouseLook.cursor_enable();
+        else
+            rigidbodyFirstPersonController.mouseLook.cursor_disabled();
+    }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            pause();
+        }
     }
 }
 

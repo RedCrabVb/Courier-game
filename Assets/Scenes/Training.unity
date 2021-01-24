@@ -1877,6 +1877,8 @@ MonoBehaviour:
           m_StringArgument: Map_1
           m_BoolArgument: 0
         m_CallState: 2
+  end_text: {fileID: 0}
+  isEnd: 0
 --- !u!1 &628011826
 GameObject:
   m_ObjectHideFlags: 0
@@ -2963,6 +2965,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6153558774041434989, guid: fed2360a94e96654193b2a9ee241009a,
+        type: 3}
+      propertyPath: rigidbodyFirstPersonController
+      value: 
+      objectReference: {fileID: 917070117}
     - target: {fileID: 9126855113408188929, guid: fed2360a94e96654193b2a9ee241009a,
         type: 3}
       propertyPath: m_Text
@@ -3175,6 +3182,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98136c48c8061e448a3779ab2576700b, type: 3}
+--- !u!114 &917070117 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2804818099566620728, guid: 98136c48c8061e448a3779ab2576700b,
+    type: 3}
+  m_PrefabInstance: {fileID: 917070116}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 350e8704c89103c49b231281fc573f13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &934186546
 GameObject:
   m_ObjectHideFlags: 0

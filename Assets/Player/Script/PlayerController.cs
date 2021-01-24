@@ -50,7 +50,6 @@ public class PlayerController : MonoBehaviour
     {
         rbfps = GetComponent<RigidbodyFirstPersonController>();
         rb = GetComponent<Rigidbody>();
-        Cursor.visible = false;
     }
 
     // Update is called once per frame

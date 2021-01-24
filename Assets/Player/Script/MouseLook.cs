@@ -18,15 +18,21 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public Quaternion m_CharacterTargetRot;
         public Quaternion m_CameraTargetRot;
 
-        void Start()
+        public void cursor_enable()
         {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        public void cursor_disabled()
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
         public void Init(Transform character, Transform camera)
         {
             m_CharacterTargetRot = character.localRotation;
             m_CameraTargetRot = camera.localRotation;
         }
-
 
         public void LookRotation(Transform character, Transform camera)
         {
@@ -79,44 +85,31 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (m_CameraTargetRot.x > 0)
             {
                 m_CameraTargetRot.x -= 1f * Time.deltaTime * speed;
-
             }
             if (m_CameraTargetRot.x < 0)
             {
                 m_CameraTargetRot.x += 1f * Time.deltaTime * speed;
-
             }
 
             if (m_CameraTargetRot.y > 0)
             {
                 m_CameraTargetRot.y -= 1f * Time.deltaTime * speed;
-
             }
             if (m_CameraTargetRot.y < 0)
             {
                 m_CameraTargetRot.y += 1f * Time.deltaTime * speed;
-
             }
 
             if (m_CameraTargetRot.z > 0)
             {
                 m_CameraTargetRot.z -= 1f * Time.deltaTime * speed;
-
             }
             if (m_CameraTargetRot.z < 0)
             {
                 m_CameraTargetRot.z += 1f * Time.deltaTime * speed;
-
             }
 
-
-
-
-
             camera.localRotation = m_CameraTargetRot;
-
-
-
         }
 
 

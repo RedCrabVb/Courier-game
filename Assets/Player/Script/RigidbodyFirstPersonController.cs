@@ -41,9 +41,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     //handled last as if strafing and moving forward at the same time forwards speed should take precedence
                     CurrentTargetSpeed = ForwardSpeed;
                 }
-
             }
-
         }
 
 
@@ -69,6 +67,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_YRotation;
         private bool m_IsGrounded;
 
+        private void Start()
+        {
+            mouseLook.cursor_disabled();
+        }
 
         public Vector3 Velocity
         {
@@ -195,13 +197,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_RigidBody.AddForce(new Vector3(0f, movementSettings.JumpForce, 0f), ForceMode.Impulse);
         }
 
-
-
-
-
         private Vector2 GetInput()
         {
-
             Vector2 input = new Vector2
             {
                 x = Input.GetAxisRaw("Horizontal"),
