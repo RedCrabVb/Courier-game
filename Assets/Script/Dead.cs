@@ -1,36 +1,39 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityStandardAssets.Characters.FirstPerson;
+using Game.Player;
 
-public class Dead : MonoBehaviour
+namespace Game.save
 {
-    private SavePoint[] AllSavePoint;
-    public Animator eye;
-    private void Start()
+    public class Dead : MonoBehaviour
     {
-        AllSavePoint = FindObjectsOfType<SavePoint>();
-    }
+        private SavePoint[] AllSavePoint;
+        public Animator eye;
+        private void Start()
+        {
+            AllSavePoint = FindObjectsOfType<SavePoint>();
+        }
 
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.tag != "Player")
-            return;
-       for(int i = 0; i < AllSavePoint.Length; i++)
-       {
-            if (AllSavePoint[i].isActive)
+        public void OnTriggerEnter(Collider other)
+        {
+            if (!other.GetComponent<RigidbodyFirstPersonController>())
+                return;
+            for (int i = 0; i < AllSavePoint.Length; i++)
             {
-                StartCoroutine(dead(other, AllSavePoint[i].getSpawnPoint().position));
+                if (AllSavePoint[i].isActive)
+                {
+                    StartCoroutine(dead(other, AllSavePoint[i].getSpawnPoint().position));
+                }
             }
-       }
-    }
-    IEnumerator dead(Collider player, Vector3 respawnPoint)
-    {
-        eye.SetTrigger("Dead");
-        player.gameObject.transform.position = respawnPoint;
-        player.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-        player.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-        player.gameObject.GetComponent<RigidbodyFirstPersonController>().enabled = false;
-        yield return new WaitForSeconds(1.5f);
-        player.gameObject.GetComponent<RigidbodyFirstPersonController>().enabled = true;
+        }
+        IEnumerator dead(Collider player, Vector3 respawnPoint)
+        {
+            eye.SetTrigger("Dead");
+            player.gameObject.transform.position = respawnPoint;
+            player.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            player.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+            player.gameObject.GetComponent<RigidbodyFirstPersonController>().enabled = false;
+            yield return new WaitForSeconds(1.5f);
+            player.gameObject.GetComponent<RigidbodyFirstPersonController>().enabled = true;
+        }
     }
 }

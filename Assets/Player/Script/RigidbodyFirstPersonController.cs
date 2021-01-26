@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
-
-namespace UnityStandardAssets.Characters.FirstPerson
+using Game.Parkour;
+namespace Game.Player
 {
     [RequireComponent(typeof(Rigidbody))]
     [RequireComponent(typeof(CapsuleCollider))]
@@ -69,7 +69,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void Start()
         {
-            mouseLook.cursor_disabled();
+           MouseLook.cursor_disabled();
         }
 
         public Vector3 Velocity

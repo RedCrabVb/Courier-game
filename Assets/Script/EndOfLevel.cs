@@ -1,27 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
-using UnityStandardAssets.Characters.FirstPerson;
 using UnityEngine.UI;
-public class EndOfLevel : MonoBehaviour
+using Game.Player;
+
+namespace Game.save
 {
-    public UnityEvent endOfLevel;
-    public Text end_text;
-    public bool isEnd = false;
-    private void Start()
+    public class EndOfLevel : MonoBehaviour
     {
-        PlayerPrefs.SetString("NotPassedLevel", SceneManager.GetActiveScene().name);
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
+        public UnityEvent endOfLevel;
+        public Text end_text;
+        public bool isEnd = false;
+        private void Start()
         {
-            other.gameObject.GetComponent<RigidbodyFirstPersonController>().mouseLook.cursor_enable();
-            if (end_text != null && isEnd)
-                end_text.text = "Вы справились с заказом. \n" + PlayerPrefs.GetString("End");
-            endOfLevel.Invoke();
+            PlayerPrefs.SetString("NotPassedLevel", SceneManager.GetActiveScene().name);
+        }
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.GetComponent<RigidbodyFirstPersonController>())
+            {
+                MouseLook.cursor_enable();
+                if (end_text != null && isEnd)
+                    end_text.text = "Вы справились с заказом. \n" + PlayerPrefs.GetString("End");
+                endOfLevel.Invoke();
+            }
         }
     }
 }

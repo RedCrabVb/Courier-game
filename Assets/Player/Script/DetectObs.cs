@@ -1,46 +1,49 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class DetectObs : MonoBehaviour
+namespace Game.Parkour
 {
-    public string ObjectTagName = "";
-    public bool Obstruction;
-    public List<string> tags;
-    private GameObject Object;
-    private Collider colnow;
-
-    void OnTriggerStay(Collider col)
+    public class DetectObs : MonoBehaviour
     {
-        bool is_object_find = (ObjectTagName != "" && !Obstruction);
-        if (is_object_find)
+        public string ObjectTagName = "";
+        public bool Obstruction;
+        public List<string> tags;
+        private GameObject Object;
+        private Collider colnow;
+
+        void OnTriggerStay(Collider col)
         {
-            bool does_the_object_have_the_correct_tag = col.GetComponent<CustomTag>().HasTag(ObjectTagName) && col.GetComponent<CustomTag>().IsEnabled;
-            bool is_correct_object = col != null;
-            if (is_correct_object && does_the_object_have_the_correct_tag) // checks if the object has the right tag
+            bool is_object_find = (ObjectTagName != "" && !Obstruction);
+            if (is_object_find)
             {
-                Obstruction = true;
-                Object = col.gameObject;
-                colnow = col;
-                tags = col.GetComponent<CustomTag>().tags;
+                bool does_the_object_have_the_correct_tag = col.GetComponent<CustomTag>().HasTag(ObjectTagName) && col.GetComponent<CustomTag>().IsEnabled;
+                bool is_correct_object = col != null;
+                if (is_correct_object && does_the_object_have_the_correct_tag) // checks if the object has the right tag
+                {
+                    Obstruction = true;
+                    Object = col.gameObject;
+                    colnow = col;
+                    tags = col.GetComponent<CustomTag>().tags;
+                }
             }
         }
-    }
 
 
-    private void Update()
-    {
-        if(Object != null && (!colnow.enabled || !Object.activeInHierarchy))
+        private void Update()
         {
-            Obstruction = false;
+            if (Object != null && (!colnow.enabled || !Object.activeInHierarchy))
+            {
+                Obstruction = false;
+            }
         }
+
+
+        void OnTriggerExit(Collider col)
+        {
+            bool is_not_getting_out_of_an_obstacle = (col == colnow);
+            if (is_not_getting_out_of_an_obstacle)
+                Obstruction = false;
+        }
+
     }
-
-
-    void OnTriggerExit(Collider col)
-    {
-        bool is_not_getting_out_of_an_obstacle = (col == colnow);
-        if(is_not_getting_out_of_an_obstacle)
-             Obstruction = false;
-    }
-
 }

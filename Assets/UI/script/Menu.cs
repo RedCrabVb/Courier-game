@@ -1,36 +1,39 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Menu : MonoBehaviour
+namespace Game.UI
 {
-    private string menu_scen_name = "GameMenu";
-    public void restart_game()
+    public class Menu : MonoBehaviour
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
-    }
-    public void reset_data()
-    {
-        PlayerPrefs.DeleteAll();
-    }
-    public void go_menu()
-    {
-        SceneManager.LoadScene(menu_scen_name, LoadSceneMode.Single);
-    }
-    public void load_level()
-    { 
-        if(PlayerPrefs.GetString("NotPassedLevel") != "")
-         SceneManager.LoadScene(PlayerPrefs.GetString("NotPassedLevel"), LoadSceneMode.Single);
-        else
-            SceneManager.LoadScene("Training", LoadSceneMode.Single);
-    }
-   
-    public void load_level(string name)
-    {
-        SceneManager.LoadScene(name, LoadSceneMode.Single);
-    }
+        private static string menu_scen_name = "GameMenu";
+        public void restart_game()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+        }
+        public void reset_data()
+        {
+            PlayerPrefs.DeleteAll();
+        }
+        public void go_menu()
+        {
+            SceneManager.LoadScene(menu_scen_name, LoadSceneMode.Single);
+        }
+        public void load_level()
+        {
+            if (PlayerPrefs.GetString("NotPassedLevel") != "")
+                SceneManager.LoadScene(PlayerPrefs.GetString("NotPassedLevel"), LoadSceneMode.Single);
+            else
+                SceneManager.LoadScene("Training", LoadSceneMode.Single);
+        }
 
-    public void exit_game()
-    {
-        Application.Quit();
+        public void load_level(string name)
+        {
+            SceneManager.LoadScene(name, LoadSceneMode.Single);
+        }
+
+        public void exit_game()
+        {
+            Application.Quit();
+        }
     }
 }

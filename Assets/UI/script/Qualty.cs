@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class Qualty : MonoBehaviour
+namespace Game.UI
 {
-    public Dropdown dropdown;
-    public void checkdropdown()
+    public class Qualty : MonoBehaviour
     {
-        QualitySettings.SetQualityLevel(dropdown.value, true);
+        public Dropdown dropdown;
+        public void checkdropdown()
+        {
+            QualitySettings.SetQualityLevel(dropdown.value, true);
+        }
     }
 }

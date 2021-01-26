@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
 
-namespace UnityStandardAssets.Characters.FirstPerson
+
+namespace Game.Player
 {
     [Serializable]
     public class MouseLook
@@ -18,12 +19,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public Quaternion m_CharacterTargetRot;
         public Quaternion m_CameraTargetRot;
 
-        public void cursor_enable()
+        public static void cursor_enable()
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
-        public void cursor_disabled()
+        public static void cursor_disabled()
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -72,43 +73,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
         public void CamGoBackAll(Transform character, Transform camera)
         {
-            m_CameraTargetRot.x = 0f;
-
-            m_CameraTargetRot.z = 0f;
-            m_CameraTargetRot.y = 0f;
+            m_CameraTargetRot.eulerAngles = new Vector3(0f, 0f, 0f);
             camera.localRotation = m_CameraTargetRot;
-
         }
         public void CamGoBack(Transform character, Transform camera, float speed)
         {
-
-            if (m_CameraTargetRot.x > 0)
-            {
-                m_CameraTargetRot.x -= 1f * Time.deltaTime * speed;
-            }
-            if (m_CameraTargetRot.x < 0)
-            {
-                m_CameraTargetRot.x += 1f * Time.deltaTime * speed;
-            }
-
-            if (m_CameraTargetRot.y > 0)
-            {
-                m_CameraTargetRot.y -= 1f * Time.deltaTime * speed;
-            }
-            if (m_CameraTargetRot.y < 0)
-            {
-                m_CameraTargetRot.y += 1f * Time.deltaTime * speed;
-            }
-
-            if (m_CameraTargetRot.z > 0)
-            {
-                m_CameraTargetRot.z -= 1f * Time.deltaTime * speed;
-            }
-            if (m_CameraTargetRot.z < 0)
-            {
-                m_CameraTargetRot.z += 1f * Time.deltaTime * speed;
-            }
-
+            float tmp = 1f * Time.deltaTime * speed;
+            m_CameraTargetRot.eulerAngles += new Vector3(m_CameraTargetRot.x > 0 ? tmp : -tmp,
+                                                         m_CameraTargetRot.y > 0 ? tmp : -tmp,
+                                                         m_CameraTargetRot.z > 0 ? tmp : -tmp);
             camera.localRotation = m_CameraTargetRot;
         }
 
@@ -121,13 +94,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
             q.w = 1.0f;
 
             float angleX = 2.0f * Mathf.Rad2Deg * Mathf.Atan (q.x);
-
             angleX = Mathf.Clamp (angleX, MinimumX, MaximumX);
-
             q.x = Mathf.Tan (0.5f * Mathf.Deg2Rad * angleX);
 
             return q;
         }
-
     }
 }
