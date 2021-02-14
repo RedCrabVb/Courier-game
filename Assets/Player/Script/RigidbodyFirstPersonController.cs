@@ -18,10 +18,6 @@ namespace Game.Player
 
             [HideInInspector] public float CurrentTargetSpeed = 8f;
 
-#if !MOBILE_INPUT
-            private bool m_Running;
-#endif
-
             public void UpdateDesiredTargetSpeed(Vector2 input)
             {
                 if (input == Vector2.zero) return;
@@ -50,6 +46,9 @@ namespace Game.Player
         public MovementSettings movementSettings = new MovementSettings();
         public MouseLook mouseLook = new MouseLook();
         public Vector3 relativevelocity;
+
+        public GameObject markObj;
+        public Mark mark;
 
         public DetectObs detectGround;
         public DetectObs DetectWallL, DetectWallR;
@@ -89,18 +88,21 @@ namespace Game.Player
             m_Capsule = GetComponent<CapsuleCollider>();
             audioSource = GetComponent<AudioSource>();
             mouseLook.Init(transform, cam.transform);
+            mark = new Mark(gameObject, markObj);
+        }
+
+        private void OnCollisionStay(Collision collision)
+        {
+            mark.advancing(collision);
         }
 
 
         private void Update()
         {
             relativevelocity = transform.InverseTransformDirection(m_RigidBody.velocity);
-            if (m_IsGrounded)
+            if (m_IsGrounded && Input.GetKeyDown(KeyCode.Space))
             {
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    NormalJump();
-                }
+                NormalJump();
             }
             else if (Wallrunning)
             {
@@ -229,18 +231,22 @@ namespace Game.Player
         private void MoveSounds(DetectObs detct)
         {
             if (StepTimerDown > 0)
+            {
                 StepTimerDown -= Time.deltaTime;
+            }
             else if (StepTimerDown < 0)
+            {
                 StepTimerDown = 0;
+            }
             else if (StepTimerDown == 0)
             {
                 bool isMove = Input.GetAxisRaw("Vertical") != 0 || Input.GetAxisRaw("Horizontal") != 0;
                 if ((m_IsGrounded || Wallrunning) && isMove)
                 {
                     if (detct.tags.Contains("Ground"))
-                       audioSource.PlayOneShot(Ground[UnityEngine.Random.Range(0, Ground.Length)]);
+                        audioSource.PlayOneShot(Ground[UnityEngine.Random.Range(0, Ground.Length)]);
                     if (detct.tags.Contains("Stone"))
-                       audioSource.PlayOneShot(Stone[UnityEngine.Random.Range(0, Stone.Length)]);
+                        audioSource.PlayOneShot(Stone[UnityEngine.Random.Range(0, Stone.Length)]);
                 }
                 StepTimerDown = StepTimer;
             }
@@ -251,8 +257,10 @@ namespace Game.Player
         }
         private void JumpSounds()
         {
-            if(Wallrunning || m_IsGrounded)
+            if (Wallrunning || m_IsGrounded)
+            {
                 audioSource.PlayOneShot(Jump[UnityEngine.Random.Range(0, Jump.Length)]);
+            }
         }
     }
 }

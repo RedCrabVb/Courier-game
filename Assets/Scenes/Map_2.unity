@@ -24879,6 +24879,11 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 775c28eb53110654bb7b052d3b5c8a0f, type: 3}
+    - target: {fileID: 2804818098630210889, guid: 98136c48c8061e448a3779ab2576700b,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.079
+      objectReference: {fileID: 0}
     - target: {fileID: 2804818098630210891, guid: 98136c48c8061e448a3779ab2576700b,
         type: 3}
       propertyPath: m_BackGroundColor.r
@@ -24906,9 +24911,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2804818099566620728, guid: 98136c48c8061e448a3779ab2576700b,
         type: 3}
+      propertyPath: Stone.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2804818099566620728, guid: 98136c48c8061e448a3779ab2576700b,
+        type: 3}
       propertyPath: movementSettings.ForwardSpeed
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2804818099566620728, guid: 98136c48c8061e448a3779ab2576700b,
+        type: 3}
+      propertyPath: markObj
+      value: 
+      objectReference: {fileID: 3032291602706030548, guid: 6d7dee99285bc5543bccbab41da83d2d,
+        type: 3}
+    - target: {fileID: 2804818099566620728, guid: 98136c48c8061e448a3779ab2576700b,
+        type: 3}
+      propertyPath: Stone.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7bd77415a61f1d249b2f9bc1584e56c4, type: 3}
+    - target: {fileID: 2804818099566620728, guid: 98136c48c8061e448a3779ab2576700b,
+        type: 3}
+      propertyPath: Stone.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8a070cad746edf04f97dab541598e632, type: 3}
+    - target: {fileID: 2804818099566620728, guid: 98136c48c8061e448a3779ab2576700b,
+        type: 3}
+      propertyPath: Stone.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: b740f2487e735ae46baf9b795b841226, type: 3}
+    - target: {fileID: 2804818099566620728, guid: 98136c48c8061e448a3779ab2576700b,
+        type: 3}
+      propertyPath: Stone.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: d12f433b1e746ac42a261ceba45e7b32, type: 3}
+    - target: {fileID: 2804818099566620728, guid: 98136c48c8061e448a3779ab2576700b,
+        type: 3}
+      propertyPath: Stone.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: d52fb0febc10bf141bb2f0466091fb6b, type: 3}
+    - target: {fileID: 2804818099566620728, guid: 98136c48c8061e448a3779ab2576700b,
+        type: 3}
+      propertyPath: Stone.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4b7236e0d2371c74cb99678ff0661b1d, type: 3}
+    - target: {fileID: 2804818099566620728, guid: 98136c48c8061e448a3779ab2576700b,
+        type: 3}
+      propertyPath: Stone.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9ca258def402a6a4692e6202f8c30c80, type: 3}
     - target: {fileID: 2804818099566620732, guid: 98136c48c8061e448a3779ab2576700b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24984,7 +25035,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6edffccb983c04246bf3f9debc225389, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.714
+  m_Volume: 0.086
   m_Pitch: 1
   Loop: 1
   Mute: 0

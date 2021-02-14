@@ -984,6 +984,7 @@ MonoBehaviour:
     m_CharacterTargetRot: {x: 0, y: 0, z: 0, w: 0}
     m_CameraTargetRot: {x: 0, y: 0, z: 0, w: 0}
   relativevelocity: {x: 0, y: 0, z: 0}
+  markObj: {fileID: 4039678325490964497, guid: 290a57db100aa774dbf3795d18873e7a, type: 3}
   detectGround: {fileID: 2804818099066745818}
   DetectWallL: {fileID: 2804818099463288328}
   DetectWallR: {fileID: 2804818098867464011}
