@@ -1,16 +1,18 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using System;
+
 public class Dialog : MonoBehaviour
 {
-    private string[] select = {"Надеть маску?", "Надеть перчатки?", "Использовать антисептик?", "Мыть руки?"};
+    public string[] select = {"Надеть маску?", "Надеть перчатки?", "Использовать антисептик?", "Мыть руки?"};
     private string[] end = { "Молодец!", "Будь ответственным!", "Нужно думать не только о себе, но и об окружающих.", "Это поведение представляет угрозу."};
     private int index_select = 0;
     public Text text_for_select;
     public UnityEvent start_event;
 
     private int karma = 0;
-    private bool mask = false;
+    private bool mask = true;
     private enum end_ptions : int
     {
         good = 0, average = 1, unsatisfactory = 2, bad = 3
@@ -25,9 +27,12 @@ public class Dialog : MonoBehaviour
     {
         karma += choice ? 1 : 0;
         mask = select[index_select] == "Надеть маску?" ? choice : mask;
+        PlayerPrefs.SetString("mask", mask.ToString());
         if (index_select + 1 == select.Length)
         {
             PlayerPrefs.SetString("End", election_results());
+            PlayerPrefs.SetInt("karma", karma);
+            PlayerPrefs.SetInt("select.Length", select.Length);
             gameObject.SetActive(false);
             Debug.Log(PlayerPrefs.GetString("End"));
             start_event.Invoke();
@@ -40,9 +45,11 @@ public class Dialog : MonoBehaviour
     }
     public string election_results()
     {
-        return karma == select.Length ? end[(int)end_ptions.good] :
-               karma > 0 && mask ? end[(int)end_ptions.average] :
-               karma > 0 && !mask ? end[(int)end_ptions.unsatisfactory] : 
+        int allKarm = karma + PlayerPrefs.GetInt("karma");
+        int allSelect = select.Length + PlayerPrefs.GetInt("select.Length");
+        return allKarm == allSelect ? end[(int)end_ptions.good] :
+               allKarm > 0 && Convert.ToBoolean(PlayerPrefs.GetString("mask")) ? end[(int)end_ptions.average] :
+               allKarm > 0 && !Convert.ToBoolean(PlayerPrefs.GetString("mask")) ? end[(int)end_ptions.unsatisfactory] : 
                end[(int)end_ptions.bad];
     }
 }
