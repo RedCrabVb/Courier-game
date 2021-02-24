@@ -10,20 +10,20 @@ namespace Game.save
     {
         public UnityEvent endOfLevel;
         public Text end_text;
-        public bool isEnd = false;
+        public bool isEnd;
+        
         private void Start()
         {
             PlayerPrefs.SetString("NotPassedLevel", SceneManager.GetActiveScene().name);
         }
-        private void OnTriggerEnter(Collider other)
+
+        public void end()
         {
-            if (other.GetComponent<RigidbodyFirstPersonController>())
-            {
-                MouseLook.cursor_enable();
-                if (end_text != null && isEnd)
-                    end_text.text = "Вы справились с заказом. \n" + PlayerPrefs.GetString("End");
-                endOfLevel.Invoke();
-            }
+            MouseLook.cursor_enable();
+            if (end_text != null)
+                end_text.text = "Вы справились с заказом. \n" +  (isEnd ? PlayerPrefs.GetString("End") : "");
+            PlayerPrefs.SetString("selectedOrder", "false");
+            endOfLevel.Invoke();
         }
     }
 }
