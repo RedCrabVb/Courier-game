@@ -28,8 +28,8 @@ namespace Game.save
 
         public void showHint()
         {
-            text.text = !isSelectedOrder ? "Вы не взяли заказ ..." : "Вы можете закончить выполнение заказа, нажмите ЛКМ";
-            text.text = isEndPoint ? text.text : "Для того чтобы взять заказ, нажмите ЛКМ";
+            text.text = !isSelectedOrder ? "Вы не взяли заказ ..." : "Вы можете закончить выполнение заказа, нажмите ПКМ";
+            text.text = isEndPoint ? text.text : "Для того чтобы взять заказ, нажмите ПКМ";
             img.SetActive((isEndPoint && isSelectedOrder) || !isEndPoint);
         }
 
