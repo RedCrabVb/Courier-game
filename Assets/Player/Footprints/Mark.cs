@@ -22,7 +22,8 @@ namespace Game.Player
 
         public void advancing(Collision collision)
         {
-            if (collision.gameObject != null && collision.gameObject.GetComponent<CustomTag>() && collision.gameObject.GetComponent<CustomTag>().tags.Contains("stable_object"))
+            if (collision.gameObject != null && collision.gameObject.GetComponent<CustomTag>() && collision.gameObject.GetComponent<CustomTag>().tags.Contains("stable_object")
+                && (Input.GetAxisRaw("Vertical") != 0 || Input.GetAxisRaw("Horizontal") != 0f))
             {
                 StepTimerDown = StepTimerDown > 0 ? StepTimerDown - Time.deltaTime : 0;
                 if (StepTimerDown == 0)
