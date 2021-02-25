@@ -10,18 +10,20 @@ namespace Game.save
     {
         public bool isEndPoint = false;
         private bool isSelectedOrder = false;
+        private bool isActive = true;
 
         public GameObject boxObj;
         public Text text;
         public GameObject img;
+        private AudioSource audioSource;
         private EndOfLevel endOfLevel;
         private Renderer renderCach;
         private Color colorCach;
-
         private void Start()
         {
             isSelectedOrder = PlayerPrefs.GetString("selectedOrder") == true.ToString() ? true : false;
             renderCach = isEndPoint ? gameObject.GetComponent<Renderer>() : boxObj.GetComponent<Renderer>();
+            audioSource = gameObject.GetComponent<AudioSource>();
             colorCach = renderCach.material.color;
             endOfLevel = gameObject.GetComponent<EndOfLevel>();   
         }
@@ -30,7 +32,8 @@ namespace Game.save
         {
             text.text = !isSelectedOrder ? "Вы не взяли заказ ..." : "Вы можете закончить выполнение заказа, нажмите ПКМ";
             text.text = isEndPoint ? text.text : "Для того чтобы взять заказ, нажмите ПКМ";
-            img.SetActive((isEndPoint && isSelectedOrder) || !isEndPoint);
+            text.text = !isActive ? "" : text.text;
+            img.SetActive(((isEndPoint && isSelectedOrder) || !isEndPoint) && isActive);
         }
 
         public void hideHint()
@@ -49,7 +52,7 @@ namespace Game.save
             }
             else
             {
-                boxObj.SetActive(true);
+                boxObj.SetActive(isActive && isEndPoint);
             }
         }
 
@@ -58,9 +61,11 @@ namespace Game.save
             if (other.GetComponent<RigidbodyFirstPersonController>() && Input.GetMouseButtonDown(1) && (isSelectedOrder || !isEndPoint))
             {
                 hideHint();
-                gameObject.SetActive(isEndPoint);
+                audioSource.Play();
                 PlayerPrefs.SetString("selectedOrder", (!isEndPoint).ToString());
-                if(isEndPoint)
+                isActive = false;
+                boxObj.SetActive(isActive);
+                if (isEndPoint)
                     endOfLevel.end();
             }
         }
@@ -69,7 +74,7 @@ namespace Game.save
         {
             hideHint();
             renderCach.material.color = colorCach;
-            boxObj.SetActive(!isEndPoint);
+            boxObj.SetActive(!isEndPoint && isActive);
         }
     }
 }
