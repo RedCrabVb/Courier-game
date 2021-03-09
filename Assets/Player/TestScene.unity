@@ -3664,6 +3664,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3528553986252049293, guid: fed2360a94e96654193b2a9ee241009a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3528553986745170599, guid: fed2360a94e96654193b2a9ee241009a,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -3678,6 +3683,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9126855114896735806, guid: fed2360a94e96654193b2a9ee241009a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3314897879010344288, guid: fed2360a94e96654193b2a9ee241009a, type: 3}
@@ -3788,6 +3798,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1877012861562785698, guid: 98136c48c8061e448a3779ab2576700b,
+        type: 3}
+      propertyPath: profile
+      value: 
+      objectReference: {fileID: 11400000, guid: 3a3991d7a54a7824c90f423624d28fc8,
+        type: 2}
     - target: {fileID: 2804818099566620711, guid: 98136c48c8061e448a3779ab2576700b,
         type: 3}
       propertyPath: m_Name
