@@ -13,9 +13,10 @@ namespace Game.UI
         public void reset_data()
         {
             PlayerPrefs.DeleteAll();
-            PlayerPrefs.SetString("mask", (false).ToString());
+            PlayerPrefs.SetString("mask", false.ToString());
             PlayerPrefs.SetInt("karma", 0);
             PlayerPrefs.SetInt("select.Length", 0);
+            PlayerPrefs.SetString("postProces", true.ToString());
         }
         public void go_menu()
         {
