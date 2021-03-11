@@ -254,6 +254,7 @@ GameObject:
   - component: {fileID: 4824439753120196858}
   - component: {fileID: 4824439753120196856}
   - component: {fileID: 4824439753120196857}
+  - component: {fileID: 6336888111502264433}
   m_Layer: 5
   m_Name: Panel pause
   m_TagString: Untagged
@@ -321,6 +322,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &6336888111502264433
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4824439753120196859}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e6e37ea7c7f89634f8ca9857e1117889, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &4824439753112082453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -519,7 +539,7 @@ PrefabInstance:
     - target: {fileID: 2441817867663511518, guid: b08f88a03bf53904fb2b9c6424774d7a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2441817867663511518, guid: b08f88a03bf53904fb2b9c6424774d7a,
         type: 3}
@@ -546,6 +566,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2441817867663511518, guid: b08f88a03bf53904fb2b9c6424774d7a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2441817867663511518, guid: b08f88a03bf53904fb2b9c6424774d7a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2441817867663511518, guid: b08f88a03bf53904fb2b9c6424774d7a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 4824439753120196859}
     - target: {fileID: 2441817867663511519, guid: b08f88a03bf53904fb2b9c6424774d7a,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -19,20 +19,29 @@ namespace Game.UI
         }
         private void pause()
         {
-            ispuse = !ispuse;
-            Time.timeScale = (ispuse == true ? (float)SpeedTime.Stop_time : (float)SpeedTime.Start_time);
+            Time.timeScale = (float)SpeedTime.Stop_time;
 
-            pause_panel.SetActive(ispuse);
-            if (ispuse)
-                MouseLook.cursor_enable();
-            else
-                MouseLook.cursor_disabled();
+            pause_panel.SetActive(true);
+            MouseLook.cursor_enable();
         }
+
+        private void start()
+        {
+            Time.timeScale = (float)SpeedTime.Start_time;
+
+            pause_panel.SetActive(false);
+            MouseLook.cursor_disabled();
+        }
+
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                pause();
+                ispuse = !ispuse;
+                if (ispuse)
+                    pause();
+                else
+                    start();
             }
         }
     }

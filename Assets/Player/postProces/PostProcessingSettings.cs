@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
+using Game.Player;
 using UnityEngine;
 using UnityEngine.PostProcessing;
 using UnityEngine.UI;
+using Game.Player;
 public class PostProcessingSettings : MonoBehaviour
 {
     private static bool postProcs = false;
@@ -49,6 +50,7 @@ public class PostProcessingSettings : MonoBehaviour
             gameObject.GetComponent<Toggle>().isOn = postProcs;
         }
 
+        MouseLook.cursor_enable();
         StartCoroutine("changThis");
     }
 

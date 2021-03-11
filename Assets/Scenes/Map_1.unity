@@ -6654,6 +6654,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48751ddad33b16c498385f425a55a16a, type: 3}
+--- !u!114 &181734115 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9126855114871803600, guid: fed2360a94e96654193b2a9ee241009a,
+    type: 3}
+  m_PrefabInstance: {fileID: 3528553985671413765}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a3419bdc94ada6499bfd5482e9ba147, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &184212038
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56712,9 +56724,29 @@ PrefabInstance:
       objectReference: {fileID: 4203816196585158949}
     - target: {fileID: 6866316212308869395, guid: fed2360a94e96654193b2a9ee241009a,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866316212308869395, guid: fed2360a94e96654193b2a9ee241009a,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: go_menu
       objectReference: {fileID: 0}
+    - target: {fileID: 6866316212308869395, guid: fed2360a94e96654193b2a9ee241009a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 181734115}
+    - target: {fileID: 6866316212308869395, guid: fed2360a94e96654193b2a9ee241009a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: go_menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866316212308869395, guid: fed2360a94e96654193b2a9ee241009a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 181734115}
     - target: {fileID: 8499374842889699254, guid: fed2360a94e96654193b2a9ee241009a,
         type: 3}
       propertyPath: m_RootOrder

@@ -563,6 +563,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Panel pause
       objectReference: {fileID: 0}
+    - target: {fileID: 7138431965363820502, guid: f54dbc7ded55edd458f5ad626cd60298,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7138431965363820502, guid: f54dbc7ded55edd458f5ad626cd60298,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 9126855114871803600}
+    - target: {fileID: 7138431965363820502, guid: f54dbc7ded55edd458f5ad626cd60298,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: go_menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7138431965363820502, guid: f54dbc7ded55edd458f5ad626cd60298,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7138431965363820502, guid: f54dbc7ded55edd458f5ad626cd60298,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9126855114871803600}
+    - target: {fileID: 7138431965363820502, guid: f54dbc7ded55edd458f5ad626cd60298,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: go_menu
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f54dbc7ded55edd458f5ad626cd60298, type: 3}
 --- !u!1 &9126855114896735806 stripped
@@ -577,6 +607,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 4348999745836996293}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9126855114871803600 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4824439753112082453, guid: f54dbc7ded55edd458f5ad626cd60298,
+    type: 3}
+  m_PrefabInstance: {fileID: 4348999745836996293}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a3419bdc94ada6499bfd5482e9ba147, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7320999499835670488
 PrefabInstance:
   m_ObjectHideFlags: 0

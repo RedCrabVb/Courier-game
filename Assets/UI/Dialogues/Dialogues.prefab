@@ -174,7 +174,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.6981132, g: 0.66707844, b: 0.58944464, a: 1}
+    m_NormalColor: {r: 0.6509804, g: 0.6509804, b: 0.6509804, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.6226415, g: 0.5576847, b: 0.43761125, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -348,7 +348,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.6981132, g: 0.66707844, b: 0.58944464, a: 1}
+    m_NormalColor: {r: 0.7809719, g: 0.8490566, b: 0.8044954, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.6226415, g: 0.5576847, b: 0.43761125, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -636,7 +636,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.6981132, g: 0.66707844, b: 0.58944464, a: 1}
+    m_NormalColor: {r: 0.9245283, g: 0.75444996, b: 0.7731968, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.6226415, g: 0.5576847, b: 0.43761125, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -812,7 +812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.754717, g: 0.6817619, b: 0.53755784, a: 1}
+  m_Color: {r: 0.6509804, g: 0.6509804, b: 0.6509804, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -887,7 +887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.754717, g: 0.6817619, b: 0.53755784, a: 1}
+  m_Color: {r: 0.6509804, g: 0.6509804, b: 0.6509804, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -956,7 +956,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f390992b918e34043a0c4125b4bac30f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  select:
+  - "\u041D\u0430\u0434\u0435\u0442\u044C \u043C\u0430\u0441\u043A\u0443?"
+  - "\u041D\u0430\u0434\u0435\u0442\u044C \u043F\u0435\u0440\u0447\u0430\u0442\u043A\u0438?"
+  - "\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C \u0430\u043D\u0442\u0438\u0441\u0435\u043F\u0442\u0438\u043A?"
+  - "\u041C\u044B\u0442\u044C \u0440\u0443\u043A\u0438?"
   text_for_select: {fileID: 6869844421944566860}
+  start_event:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6869844422643766650
 GameObject:
   m_ObjectHideFlags: 0

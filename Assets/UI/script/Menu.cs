@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using Game.Player;
 
 namespace Game.UI
 {
@@ -21,6 +22,7 @@ namespace Game.UI
         public void go_menu()
         {
             SceneManager.LoadScene(menu_scen_name, LoadSceneMode.Single);
+            Time.timeScale = 1;
         }
         public void load_level()
         {
